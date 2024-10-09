@@ -5,7 +5,141 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>KuLi-Login</title>
   <style>
-    /* Styles remain the same as provided */
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f3f4f6;
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+    }
+
+    .login-container {
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      max-width: 400px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    h1 {
+      margin-bottom: 25px;
+      color: #333;
+      font-size: 24px;
+    }
+
+    .input-container {
+      position: relative;
+      width: 100%;
+      margin-bottom: 20px;
+    }
+
+    .input-container select,
+    .input-container input {
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      box-sizing: border-box;
+      outline: none;
+      transition: border-color 0.3s;
+    }
+
+    .input-container select:focus,
+    .input-container input:focus {
+      border-color: #007bff;
+    }
+
+    .input-container .toggle-password {
+      position: absolute;
+      top: 50%;
+      right: 12px;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      cursor: pointer;
+      outline: none;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .input-container .toggle-password svg {
+      width: 24px;
+      height: 24px;
+      fill: #888;
+      transition: fill 0.3s;
+    }
+
+    .input-container .toggle-password:hover svg {
+      fill: #0056b3;
+    }
+
+    button.submit-button {
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      color: #ffffff;
+      background-color: #007bff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button.submit-button:hover {
+      background-color: #0056b3;
+    }
+
+    @media (max-width: 600px) {
+      .login-container {
+        padding: 20px;
+      }
+
+      h1 {
+        font-size: 22px;
+        margin-bottom: 20px;
+      }
+
+      .input-container select,
+      .input-container input {
+        padding: 10px;
+        font-size: 14px;
+      }
+
+      button.submit-button {
+        padding: 10px;
+        font-size: 14px;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .login-container {
+        padding: 15px;
+      }
+
+      h1 {
+        font-size: 20px;
+        margin-bottom: 15px;
+      }
+
+      .input-container select,
+      .input-container input {
+        padding: 8px;
+        font-size: 12px;
+      }
+
+      button.submit-button {
+        padding: 8px;
+        font-size: 12px;
+      }
+    }
   </style>
 </head>
 <body>
