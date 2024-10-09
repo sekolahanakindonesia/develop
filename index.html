@@ -162,7 +162,7 @@
 
       if (accessLevel) {
         sessionStorage.setItem("accessGranted", accessLevel);
-        window.location.href = `/${accessLevel}.html`;
+        window.location.href = `/develop/${accessLevel}.html`;
       } else {
         alert("Invalid code. Please try again.");
       }
