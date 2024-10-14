@@ -175,24 +175,28 @@
   <script>
     // Function to check the access code
     function checkCode() {
-      const accessCode = document.getElementById("access-code").value.trim();
-      const academicYear = document.getElementById("academic-year").value;
+      document.getElementById("loginForm").addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      const tahunAjaran = document.getElementById("tahunAjaran").value;
       const semester = document.getElementById("semester").value;
+      const kodeAkses = document.getElementById("kodeAkses").value;
+
+      const combinedCode = `${tahunAjaran}_${semester}_${kodeAkses}`;
+        
 
       if (!academicYear || !semester) {
         alert("Please select an academic year and semester.");
         return;
       }
 
-      const accessLevel = codes[accessCode];
-
-      if (accessLevel) {
-        sessionStorage.setItem("accessGranted", accessLevel);
-        window.location.href = `/develop/${accessLevel}.html`;
+      if (codes[combinedCode]) {
+        sessionStorage.setItem("accessGranted", codes[combinedCode]);
+        window.location.href = `/develop/${codes[combinedCode].split('_')[2]}.html`; 
       } else {
         alert("Invalid code. Please try again.");
       }
-    }
+    });
 
     // Function to toggle the visibility of the password
     function togglePassword() {
