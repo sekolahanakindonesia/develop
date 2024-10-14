@@ -143,7 +143,7 @@
   </style>
 </head>
 <body>
-  <form id="loginForm">
+  <!--<form id="loginForm">-->
   <div class="login-container">
     <h1>Enter Access Code</h1>
     <div class="input-container">
@@ -171,14 +171,14 @@
     </div>
     <button class="submit-button" onclick="checkCode()">Submit</button>
   </div>
-    </form>
+    <!--</form>-->
 
   <script src="ms.js"></script>
   <script>
     // Function to check the access code
     function checkCode() {
-      document.getElementById("loginForm").addEventListener("submit", function (event) {
-      event.preventDefault();
+      // document.getElementById("loginForm").addEventListener("submit", function (event) {
+     // event.preventDefault();
 
       const academic-year = document.getElementById("academic-year").value;
       const semester = document.getElementById("semester").value;
