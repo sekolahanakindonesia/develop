@@ -143,20 +143,21 @@
   </style>
 </head>
 <body>
+  <form id="loginForm">
   <div class="login-container">
     <h1>Enter Access Code</h1>
     <div class="input-container">
       <select id="academic-year">
         <option value="">Select Academic Year</option>
-        <option value="2024-2025">2024-2025</option>
+        <option value="2425">2024-2025</option>
         <!-- Add more years as needed -->
       </select>
     </div>
     <div class="input-container">
       <select id="semester">
         <option value="">Select Semester</option>
-        <option value="1">Semester 1</option>
-        <option value="2">Semester 2</option>
+        <option value="s1">Semester 1</option>
+        <option value="s2">Semester 2</option>
         <!-- Add more semesters if needed -->
       </select>
     </div>
@@ -170,6 +171,7 @@
     </div>
     <button class="submit-button" onclick="checkCode()">Submit</button>
   </div>
+    </form>
 
   <script src="ms.js"></script>
   <script>
@@ -178,11 +180,11 @@
       document.getElementById("loginForm").addEventListener("submit", function (event) {
       event.preventDefault();
 
-      const tahunAjaran = document.getElementById("tahunAjaran").value;
+      const academic-year = document.getElementById("academic-year").value;
       const semester = document.getElementById("semester").value;
-      const kodeAkses = document.getElementById("kodeAkses").value;
+      const access-code = document.getElementById("access-code").value;
 
-      const combinedCode = `${tahunAjaran}_${semester}_${kodeAkses}`;
+      const combinedCode = `${academic-year}_${semester}_${access-code}`;
         
 
       if (!academicYear || !semester) {
