@@ -89,6 +89,13 @@ const codes = {
   kltdu47: "tdu",
 };
 
+const codes = {
+  "2425_s1_klsd10": "2425_s1_sd",
+  "2425_s1_klsmp29": "2425_s1_smp",
+  "2425_s1_klsma38": "2425_s1_sma",
+  "2425_s1_kltdu47": "2425_s1_tdu",
+};
+
 const cod = {
   klsd11: "sd",
   klsmp22: "smp",
