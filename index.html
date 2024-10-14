@@ -143,84 +143,78 @@
   </style>
 </head>
 <body>
-  <!--<form id="loginForm">-->
-  <div class="login-container">
-    <h1>Enter Access Code</h1>
-    <div class="input-container">
-      <select id="academic-year">
-        <option value="">Select Academic Year</option>
-        <option value="2425">2024-2025</option>
-        <!-- Add more years as needed -->
-      </select>
-    </div>
-    <div class="input-container">
-      <select id="semester">
-        <option value="">Select Semester</option>
-        <option value="s1">Semester 1</option>
-        <option value="s2">Semester 2</option>
-        <!-- Add more semesters if needed -->
-      </select>
-    </div>
-    <div class="input-container">
-      <input type="password" id="access-code" placeholder="Enter code" />
-      <button type="button" class="toggle-password" onclick="togglePassword()">
-        <svg id="eye-icon" viewBox="0 0 24 24">
-          <path d="M12 5c-7.633 0-11 6.274-11 7s3.367 7 11 7 11-6.274 11-7-3.367-7-11-7zm0 12c-4.149 0-7-3.281-7-5s2.851-5 7-5 7 3.281 7 5-2.851 5-7 5zm0-8c-1.654 0-3 1.346-3 3s1.346 3 3 3 3-1.346 3-3-1.346-3-3-3zm0 4.5c-.828 0-1.5-.672-1.5-1.5s.672-1.5 1.5-1.5 1.5.672 1.5 1.5-.672 1.5-1.5 1.5z"/>
-        </svg>
-      </button>
-    </div>
-    <button class="submit-button" onclick="checkCode()">Submit</button>
+<div class="login-container">
+  <h1>Enter Access Code</h1>
+  <div class="input-container">
+    <select id="academic-year">
+      <option value="">Select Academic Year</option>
+      <option value="2425">2024-2025</option>
+      <!-- Add more years as needed -->
+    </select>
   </div>
-    <!--</form>-->
+  <div class="input-container">
+    <select id="semester">
+      <option value="">Select Semester</option>
+      <option value="s1">Semester 1</option>
+      <option value="s2">Semester 2</option>
+    </select>
+  </div>
+  <div class="input-container">
+    <input type="password" id="access-code" placeholder="Enter code" />
+    <button type="button" class="toggle-password" onclick="togglePassword()">
+      <svg id="eye-icon" viewBox="0 0 24 24">
+        <path d="M12 5c-7.633 0-11 6.274-11 7s3.367 7 11 7 11-6.274 11-7-3.367-7-11-7zm0 12c-4.149 0-7-3.281-7-5s2.851-5 7-5 7 3.281 7 5-2.851 5-7 5zm0-8c-1.654 0-3 1.346-3 3s1.346 3 3 3 3-1.346 3-3-1.346-3-3-3zm0 4.5c-.828 0-1.5-.672-1.5-1.5s.672-1.5 1.5-1.5 1.5.672 1.5 1.5-.672 1.5-1.5 1.5z"/>
+      </svg>
+    </button>
+  </div>
+  <button class="submit-button" onclick="checkCode()">Submit</button>
+</div>
 
-  <script src="ms.js"></script>
-  <script>
-    // Function to check the access code
-    function checkCode() {
-      // document.getElementById("loginForm").addEventListener("submit", function (event) {
-     // event.preventDefault();
+<script>
+  const codes = {
+    "2425_s1_klsd10": "2425_s1_sd",
+    "2425_s1_klsmp29": "2425_s1_smp",
+    "2425_s1_klsma38": "2425_s1_sma",
+    "2425_s1_kltdu47": "2425_s1_tdu",
+  };
 
-      const academic-year = document.getElementById("academic-year").value;
-      const semester = document.getElementById("semester").value;
-      const access-code = document.getElementById("access-code").value;
+  function checkCode() {
+    const academicYear = document.getElementById("academic-year").value;
+    const semester = document.getElementById("semester").value;
+    const accessCode = document.getElementById("access-code").value;
 
-      const combinedCode = `${academic-year}_${semester}_${access-code}`;
-        
-
-      if (!academicYear || !semester) {
-        alert("Please select an academic year and semester.");
-        return;
-      }
-
-      if (codes[combinedCode]) {
-        sessionStorage.setItem("accessGranted", codes[combinedCode]);
-        window.location.href = `/develop/${codes[combinedCode].split('_')[2]}.html`; 
-      } else {
-        alert("Invalid code. Please try again.");
-      }
-    });
-
-    // Function to toggle the visibility of the password
-    function togglePassword() {
-      const passwordField = document.getElementById("access-code");
-      const eyeIcon = document.getElementById("eye-icon");
-
-      if (passwordField.type === "password") {
-        passwordField.type = "text";
-        eyeIcon.innerHTML = '<path d="M12 5c-7.633 0-11 6.274-11 7 0 .726 3.367 7 11 7 2.197 0 4.123-.427 5.773-1.126l2.625 2.625 1.414-1.414-19.799-19.799-1.414 1.414 3.084 3.084c-1.447.836-2.548 1.998-3.4 3.216 1.142 1.679 3.526 4.384 7.717 4.384 1.554 0 2.992-.432 4.251-1.168l1.482 1.482c-1.585.904-3.402 1.372-5.733 1.372-4.149 0-7-3.281-7-5 0-.843 2.333-4.464 6.828-5.253l1.414 1.414c-2.356.319-4.242 1.329-5.242 2.505 1.142 1.679 3.526 4.384 7.717 4.384 1.554 0 2.992-.432 4.251-1.168l1.482 1.482c-1.585.904-3.402 1.372-5.733 1.372z"/>';
-      } else {
-        passwordField.type = "password";
-        eyeIcon.innerHTML = '<path d="M12 5c-7.633 0-11 6.274-11 7s3.367 7 11 7 11-6.274 11-7-3.367-7-11-7zm0 12c-4.149 0-7-3.281-7-5s2.851-5 7-5 7 3.281 7 5-2.851 5-7 5zm0-8c-1.654 0-3 1.346-3 3s1.346 3 3 3 3-1.346 3-3-1.346-3-3-3zm0 4.5c-.828 0-1.5-.672-1.5-1.5s.672-1.5 1.5-1.5 1.5.672 1.5 1.5-.672 1.5-1.5 1.5z"/>';
-      }
+    if (!academicYear || !semester) {
+      alert("Please select an academic year and semester.");
+      return;
     }
 
-    // Submit form when Enter is pressed
-    document.getElementById("access-code").addEventListener("keydown", function (event) {
-      if (event.key === "Enter") {
-        event.preventDefault(); // Prevent default form submission behavior
-        checkCode(); // Call checkCode function
-      }
-    });
-  </script>
+    const combinedCode = `${academicYear}_${semester}_${accessCode}`;
+
+    if (codes[combinedCode]) {
+      sessionStorage.setItem("accessGranted", codes[combinedCode]);
+      window.location.href = `/develop/${codes[combinedCode].split('_')[2]}.html`;
+    } else {
+      alert("Invalid code. Please try again.");
+    }
+  }
+
+  function togglePassword() {
+    const passwordField = document.getElementById("access-code");
+    const eyeIcon = document.getElementById("eye-icon");
+
+    if (passwordField.type === "password") {
+      passwordField.type = "text";
+    } else {
+      passwordField.type = "password";
+    }
+  }
+
+  document.getElementById("access-code").addEventListener("keydown", function (event) {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      checkCode();
+    }
+  });
+</script>
 </body>
 </html>
