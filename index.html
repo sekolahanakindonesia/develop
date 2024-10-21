@@ -181,7 +181,7 @@
       return;
     }
 
-    const combinedCode = `${academicYear}_${semester}_codes[accessCode]`;
+    const combinedCode = `${academicYear}_${semester}_codes[${accessCode}]`;
 
     if (combinedCode) {
       sessionStorage.setItem("accessGranted", combinedCode);
