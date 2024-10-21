@@ -174,7 +174,7 @@
     function checkCode() {
     const academicYear = document.getElementById("academic-year").value;
     const semester = document.getElementById("semester").value;
-    const accessCode = document.getElementById("access-code").value;
+    const accessCode = document.getElementById("access-code").value.trim().toLowerCase();
 
     if (!academicYear || !semester) {
       alert("Please select an academic year and semester.");
@@ -191,16 +191,18 @@
     }
   }
 
-  function togglePassword() {
-    const passwordField = document.getElementById("access-code");
-    const eyeIcon = document.getElementById("eye-icon");
+function togglePassword() {
+  const passwordField = document.getElementById("access-code");
+  const eyeIcon = document.getElementById("eye-icon");
 
-    if (passwordField.type === "password") {
-      passwordField.type = "text";
-    } else {
-      passwordField.type = "password";
-    }
+  if (passwordField.type === "password") {
+    passwordField.type = "text";
+    eyeIcon.setAttribute("d", "M1 12C3.5 7 8.5 5 12 5c3.5 0 8.5 2 11 7-2.5 5-7.5 7-11 7-3.5 0-8.5-2-11-7z");
+  } else {
+    passwordField.type = "password";
+    eyeIcon.setAttribute("d", "M12 5c-7.633 0-11 6.274-11 7s3.367 7 11 7 11-6.274 11-7-3.367-7-11-7z");
   }
+}
 
   document.getElementById("access-code").addEventListener("keydown", function (event) {
     if (event.key === "Enter") {
