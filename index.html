@@ -182,10 +182,11 @@
     }
 
     const combinedCode = `${academicYear}_${semester}_${accessCode}`;
+    const accessLevel = codes[combinedCode];
 
-    if (combinedCode) {
-      sessionStorage.setItem("accessGranted", combinedCode);
-      window.location.href = `/develop/${codes[combinedCode]}.html`;
+    if (accessLevel) {
+      sessionStorage.setItem("accessGranted", accessLevel);
+      window.location.href = `/develop/${accessLevel}.html`;
     } else {
       alert("Invalid code. Please try again.");
     }
