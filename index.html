@@ -180,9 +180,10 @@
       alert("Please select an academic year and semester.");
       return;
     }
-
-    const combinedCode = `${academicYear}_${semester}_${accessLevel}`;
+    
     const accessLevel = codes[accessCode];
+    const combinedCode = `${academicYear}_${semester}_${accessLevel}`;
+    
 
     if (combinedCode) {
       sessionStorage.setItem("accessGranted", combinedCode);
