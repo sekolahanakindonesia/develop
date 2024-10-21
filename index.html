@@ -183,8 +183,8 @@
 
     const combinedCode = `${academicYear}_${semester}_${accessCode}`;
 
-    if (codes[combinedCode]) {
-      sessionStorage.setItem("accessGranted", codes[combinedCode]);
+    if (combinedCode) {
+      sessionStorage.setItem("accessGranted", combinedCode);
       window.location.href = `/develop/${codes[combinedCode]}.html`;
     } else {
       alert("Invalid code. Please try again.");
