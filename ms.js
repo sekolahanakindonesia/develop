@@ -82,7 +82,7 @@ const permission = {
   kltdu484: "tdu",
 };
 
-const codes = {
+const codees = {
   klsd10: "sd",
   klsmp29: "smp",
   klsma38: "sma",
