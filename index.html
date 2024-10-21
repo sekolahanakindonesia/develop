@@ -183,9 +183,9 @@
     
     const combinedCode = `${academicYear}_${semester}_${accessCode}`;
 
-    if (combinedCode) {
-      sessionStorage.setItem("accessGranted", combinedCode);
-      window.location.href = `/develop/${combinedCode}.html`;
+    if (codes[combinedCode]) {
+      sessionStorage.setItem("accessGranted", codes[combinedCode]);
+      window.location.href = `/develop/${codes[combinedCode]}.html`;
     } else {
       alert("Invalid code. Please try again.");
     }
