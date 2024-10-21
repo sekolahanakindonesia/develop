@@ -185,7 +185,7 @@
 
     if (codes[combinedCode]) {
       sessionStorage.setItem("accessGranted", codes[combinedCode]);
-      window.location.href = `/${codes[combinedCode]}.html`;
+      window.location.href = `/develop/${codes[combinedCode]}.html`;
     } else {
       alert("Invalid code. Please try again.");
     }
