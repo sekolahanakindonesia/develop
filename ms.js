@@ -94,6 +94,8 @@ const codes = {
   "2425_s1_klsmp29": "2425_s1_smp",
   "2425_s1_klsma38": "2425_s1_sma",
   "2425_s1_kltdu47": "2425_s1_tdu",
+
+  "2425_s2_klsd10": "coming",
 };
 
 const cod = {
